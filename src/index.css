@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-size: 14px;
+    scrollbar-width: thin;
+    font-family: "Roboto", sans-serif;
+
+}
+.body{
+    min-height: 100dvh;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+input{
+    background: white;
+    border: #000 solid 1px;
+}
+input::placeholder{
+    color: #000;
+}
+.button{
+    background: #222;
+    color: white;
+    padding: 10px ;
+    border-radius: 5px;
+    width: fit-content;
+    border: none;
+    transition: 0.2s;
+}
+.button:hover{
+    background: #c31c00;
+}

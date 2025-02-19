@@ -1,0 +1,94 @@
+.vinserch-body {
+  margin-top: 65px;
+  width: 100%;
+  min-height: 100dvh;
+  padding-inline: 20px;
+}
+.vinserch-body p{
+  color: #c31c00;
+  font-weight: 600;
+}
+.search-bar {
+  width: 100%;
+  min-height: 50px;
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-block: 1px solid #222;
+}
+button {
+  padding: 8px 15px;
+  background: #222;
+  color: white;
+  border-radius: 5px;
+  transition: 0.2s;
+  border: 0;
+}
+button:hover{
+  background: #c31c00;
+}
+.flex-button {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.vinsearch-content {
+  padding: 10px;
+  border: 1px solid #555;
+  width: 100%;
+  min-height: 100px;
+}
+.vinsearchcard{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+}
+.vinsearchcard .right-side {
+    display: flex;
+    flex-direction: column;
+}
+.vinsearchcard .right-side p{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    width: 300px ;
+}
+.vinsearchcard .link{
+    background: #222;
+    color: white;
+    padding: 10px ;
+    border-radius: 5px;
+    width: fit-content;
+    border: none;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+.link:hover{
+  background: #c31c00;
+}
+.vinsearchcard .right-side p span{
+    color: #c31c00;
+    
+}
+.vinsearchcard .left-side img{
+    aspect-ratio: 16/9;
+    width: 300px;
+}
+@media (max-width: 768px) {
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+  }
+  .search-bar {
+    padding: 10px;
+  }
+  .flex-button {
+    margin-left: 10px;
+  }
+  .vinsearchcard{
+    flex-direction: column;
+  }
+}
