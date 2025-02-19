@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -13,21 +13,25 @@ function Login() {
   const [forgotModel, setForgotModel] = useState(false); // Initially false for showing the login
   const [email, setEmail] = useState(""); // For storing the email input
 
-  // Show forgot password modal
-  const handleForget = () => {
-    setForgotModel(true);
-  };
 
-  // Close the forgot password modal
+  const handleForget = () => setForgotModel(true);
   const closeForgotModal = () => {
     setForgotModel(false);
+    setEmail(""); // Clear email when closing
   };
 
-  // Handle submit of the email for password reset
   const handleResetSubmit = (e) => {
     e.preventDefault();
-    alert(`Password reset link sent to ${email}`);
-    closeForgotModal(); 
+    if (email.trim()) {
+      alert(`Password reset link sent to ${email}`);
+      closeForgotModal();
+    }
+  };
+
+  const handleModalClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeForgotModal();
+    }
   };
 
   const sliderSettings = {
@@ -108,25 +112,54 @@ function Login() {
 
       {/* Forgot Password Modal */}
       {forgotModel && (
-        <div className="forgot-password-modal">
-          <div className="modal-overlay" ></div>
-          <div className="forgot-password-content">
-            <h2>Reset Password</h2>
-            <form onSubmit={handleResetSubmit}>
-              <label className="login-label">Enter your email</label>
-              <input
-                type="email"
-                className="login-input"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <div className="login-buttons">
-                <button type="submit" className="login-button login-submit">Submit</button>
-                <button type="button" className="login-button login-reset" onClick={closeForgotModal}>Cancel</button>
-              </div>
-            </form>
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm "
+          onClick={handleModalClick}
+        >
+          <div className="bg-white rounded-lg shadow-xl w-96 max-w-[90%] relative animate-fadeIn h-69">
+            {/* Close button */}
+            <button
+              onClick={closeForgotModal}
+              className="absolute right-4 top-4 text-gray-500 hover:text-gray-700 transition-colors"
+            >
+              X
+            </button>
+
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                Reset Password
+              </h2>
+              <form onSubmit={handleResetSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-600 mb-1">
+                    Enter your email
+                  </label>
+                  <input
+                    type="email"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="flex gap-4 mt-6">
+                  <button
+                    type="submit"
+                    className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+                  >
+                    Reset Password
+                  </button>
+                  <button
+                    type="button"
+                    onClick={closeForgotModal}
+                    className="flex-1 bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       )}
