@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,7 +12,6 @@ function Login() {
   const [userType, setUserType] = useState("retailer");
   const [forgotModel, setForgotModel] = useState(false); // Initially false for showing the login
   const [email, setEmail] = useState(""); // For storing the email input
-
 
   const handleForget = () => setForgotModel(true);
   const closeForgotModal = () => {
@@ -46,7 +45,7 @@ function Login() {
   };
 
   return (
-    <div className="login-wrapper">
+    <div className="relative w-[100%] login-wrapper">
       <div className="login-container">
         {/* Left Side - Carousel */}
         <div className="login-left">
@@ -83,27 +82,49 @@ function Login() {
               </select>
 
               <label className="login-label">Username</label>
-              <input type="text" className="login-input" placeholder="Enter username" />
+              <input
+                type="text"
+                className="login-input"
+                placeholder="Enter username"
+              />
 
               <label className="login-label">Password</label>
-              <input type="password" className="login-input" placeholder="Enter password" />
+              <input
+                type="password"
+                className="login-input"
+                placeholder="Enter password"
+              />
 
               <label className="login-label">Enter Captcha Code</label>
               <div className="login-captcha-container">
                 <span className="login-captcha-code">{captcha}</span>
-                <input type="text" className="login-input login-captcha-input" placeholder="Enter captcha" />
+                <input
+                  type="text"
+                  className="login-input login-captcha-input"
+                  placeholder="Enter captcha"
+                />
               </div>
 
               <div className="login-options">
-                <label><input type="checkbox" /> Remember Me</label>
-                <div onClick={handleForget} href="#" className="login-forgot-password">
+                <label>
+                  <input type="checkbox" /> Remember Me
+                </label>
+                <div
+                  onClick={handleForget}
+                  href="#"
+                  className="login-forgot-password"
+                >
                   Forgot Password?
                 </div>
               </div>
 
               <div className="login-buttons">
-                <button type="submit" className="login-button login-submit">Submit</button>
-                <button type="reset" className="login-button login-reset">Reset</button>
+                <button type="submit" className="login-button login-submit">
+                  Submit
+                </button>
+                <button type="reset" className="login-button login-reset">
+                  Reset
+                </button>
               </div>
             </form>
           </div>
@@ -113,47 +134,47 @@ function Login() {
       {/* Forgot Password Modal */}
       {forgotModel && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm "
+          className="fixed w-full h-full grid place-items-center z-50 bg-black/50 backdrop-blur-sm"
           onClick={handleModalClick}
         >
-          <div className="bg-white rounded-lg shadow-xl w-96 max-w-[90%] relative animate-fadeIn h-69">
+          <div className="bg-white rounded-lg shadow-xl w-[400px] max-w-[90%] relative animate-fadeIn m-4 h-72 !p-10 border border-[#c31c00]">
             {/* Close button */}
             <button
               onClick={closeForgotModal}
-              className="absolute right-4 top-4 text-gray-500 hover:text-gray-700 transition-colors"
+              className="absolute right-4 top-4 p-1 rounded-full hover:bg-gray-100 transition-colors"
             >
               X
             </button>
 
-            <div className="p-6">
+            <div className="!py-6">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                 Reset Password
               </h2>
               <form onSubmit={handleResetSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-600 mb-1">
+                  <label className="block text-sm font-semibold text-gray-600 !my-2">
                     Enter your email
                   </label>
                   <input
                     type="email"
-                    className="w-full p-3 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors"
+                    className="w-full !p-3 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-colors"
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </div>
-                <div className="flex gap-4 mt-6">
+                <div className="flex gap-4 !py-4">
                   <button
                     type="submit"
-                    className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+                    className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors font-medium"
                   >
                     Reset Password
                   </button>
                   <button
                     type="button"
                     onClick={closeForgotModal}
-                    className="flex-1 bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition-colors"
+                    className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-200 transition-colors font-medium"
                   >
                     Cancel
                   </button>

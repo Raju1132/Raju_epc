@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 import { FaSearch, FaBarcode, FaListUl, FaHeart, FaTools, FaShoppingCart } from "react-icons/fa";
 import "../../Css/Home.css";
@@ -15,8 +15,8 @@ function Home() {
         { icon: <FaSearch size={16}/>, label: "Model Search", path: "/model-search" },
         { icon: <FaBarcode size={16}/>, label: "VIN Search", path: "/vin-search" },
         { icon: <FaListUl size={16}/>, label: "Figure Search", path: "/figure-search" },
-        { icon: <FaHeart size={16}/>, label: "Favorite", path: "/favorite" },
         { icon: <FaTools size={16}/>, label: "Accessories", path: "/accessories" },
+        { icon: <FaHeart size={16}/>, label: "Favorite", path: "/favorite" },
         { icon: <FaShoppingCart size={16}/>, label: "Shop Products", path: "/shop-products" },
     ];
     const sliderSettings = {

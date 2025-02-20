@@ -1,4 +1,5 @@
 
+import SideSearch from "../Components/SideSearch";
 import "../Css/Parts.css";
 import img1 from "../assets/login/aa807ioox.webp";
 
@@ -32,18 +33,7 @@ function Parts() {
           }
         </div>
         <div className="right-side w-full">
-          <input type="text" placeholder="Search" />
-          <div className="table w-full">
-            <div className="aggregation ">Aggregates</div>
-
-            {data.map((val, key) => {
-              return (
-                <Link to={`parts/${val.name}`} className="fields" key={key}>
-                  {val.name}
-                </Link>
-              );
-            })}
-          </div>
+         <SideSearch data={data} name="Agregates"/>
         </div>
       </div>
     </div>
