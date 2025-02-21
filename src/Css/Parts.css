@@ -13,7 +13,7 @@ p{
 }
 .flex{
     display: flex;
-    justify-content: space-between;
+    
 }
 .parts-body .flexs .left-side {
   width: 100%;
@@ -52,7 +52,7 @@ p{
     outline:  2px solid #c31c00;
 }
 .card img{
-    border-block:1px solid #555 ;
+    border-bottom:1px solid #555 ;
 }
 .right-side{
     width: 100%;

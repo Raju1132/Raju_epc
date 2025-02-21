@@ -21,17 +21,17 @@ function Header() {
       </div>
       <div className="hidden  md:flex justify-between items-center bg-white !p-3 rounded-2xl w-86   ">
         <input type="text"  className=" !border-0 outline-0  w-72" placeholder="Search for bike parts..." />
-        <button className="bg-transparent cursor-pointer">
-          <FaSearch  className="bg-transparent"/>
+        <button className="bg-transparent cursor-pointer ">
+          <FaSearch  className="bg-transparent" />
         </button>
       </div>
-      <div className=" flex items-center gap-3 !text-2xl">
+      <div className=" flex items-center gap-5 !text-2xl">
         <Link to="/cart" className="!text-white ">
-          <FaShoppingCart />
+          <FaShoppingCart size={20} />
         </Link>
         <span className="!text-white">John Doe</span>
         <Link to="/profile" className="!text-white">
-          <FaUserCircle />
+          <FaUserCircle size={20}/>
         </Link>
         <button className="menu-btn" onClick={() => setMenuOpen(true)}>
           <FaBars />

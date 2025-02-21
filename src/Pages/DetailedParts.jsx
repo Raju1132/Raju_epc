@@ -1,4 +1,5 @@
 
+import ContentView from "../Components/ContentView";
 import SideSearch from "../Components/SideSearch";
 import "../Css/Parts.css";
 
@@ -20,15 +21,7 @@ function DetailedParts() {
       <p className="red">Parts</p>
       <div className="flexs flex">
         <div className="left-side">
-          {dataparts.map((item, key) => {
-            return (
-              <div key={key} className="card" >
-                <p>E-{key + 2}</p>
-                <img className="small-img" src={item.image} alt={item.name} />
-                <p style={{ marginTop: "5px" }}>{item.name}</p>
-              </div>
-            );
-          })}
+         <ContentView data={dataparts}/>
         </div>
         <div className="right-side">
           <SideSearch data={dataparts} name="Aggregates"/>

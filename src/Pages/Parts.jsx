@@ -1,4 +1,4 @@
-
+import ContentView from "../Components/ContentView";
 import SideSearch from "../Components/SideSearch";
 import "../Css/Parts.css";
 import img1 from "../assets/login/aa807ioox.webp";
@@ -6,34 +6,23 @@ import img1 from "../assets/login/aa807ioox.webp";
 import { Link } from "react-router-dom";
 function Parts() {
   const data = [
-    { name: "Engine", image: img1 },
-    { name: "Frame", image: img1 },
-    { name: "Engine", image: img1 },
-    { name: "Frame", image: img1 },
-    { name: "Engine", image: img1 },
-    { name: "Frame", image: img1 },
+    { name: "Engine", image: img1, link: "details" },
+    { name: "Frame", image: img1, link: "details" },
+    { name: "Engine", image: img1, link: "details" },
+    { name: "Frame", image: img1, link: "details" },
+    { name: "Engine", image: img1, link: "details" },
+    { name: "Frame", image: img1, link: "details" },
   ];
 
- 
   return (
     <div className="parts-body">
-     <p className="red">Parts</p> 
+      <p className="red">Parts</p>
       <div className="flexs flex">
         <div className="left-side">
-          {
-            data.map((item, key) => {
-              return (
-                <Link to={`details`} key={key} className="card" >
-                  
-                  <img className="small-img" src={item.image} alt={item.name} />
-                  <p>{item.name}</p>
-                </Link>
-              );
-            })
-          }
+          <ContentView data={data} links={true}/>
         </div>
         <div className="right-side w-full">
-         <SideSearch data={data} name="Agregates"/>
+          <SideSearch data={data} name="Agregates" />
         </div>
       </div>
     </div>

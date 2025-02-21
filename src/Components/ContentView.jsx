@@ -1,18 +1,27 @@
 import React from "react";
-
+import "../Css/Parts.css";
+import { Link } from "react-router-dom";
 function ContentView(props) {
   return (
-    <div className="!p-3 border border-gray-400 flex flex-wrap flex-col md:flex-row">
-      {props.dataparts.map((item, key) => {
-        return (
-          <div key={key} className="flex justify-center items-center">
-            <p>E-{key + 2}</p>
-            <img className="small-img" src={item.image} alt={item.name} />
-            <p style={{ marginTop: "5px" }}>{item.name}</p>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      {props.links
+        ? props.data.map((item, key) => {
+            return (
+              <Link to={item.link} key={key} className="card">
+                <img className="small-img" src={item.image} alt={item.name} />
+                <p style={{ marginTop: "5px" }}>{item.name}</p>
+              </Link>
+            );
+          })
+        : props.data.map((item, key) => {
+            return (
+              <div key={key} className="card">
+                <img className="small-img" src={item.image} alt={item.name} />
+                <p style={{ marginTop: "5px" }}>{item.name}</p>
+              </div>
+            );
+          })}
+    </>
   );
 }
 
