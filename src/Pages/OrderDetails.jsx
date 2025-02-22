@@ -166,11 +166,11 @@ function OrderDetails() {
           <button>Search</button>
         </div>
       </div>
-      <div className="">Total Order: <span className=" ">{orderList.length}</span></div>
+      <div className=" !pl-4">Total Order: <span className=" ">{orderList.length}</span></div>
       <div className=" flex flex-col gap-5 !my-5">
         {orderList.map((data, key) => {
           return (
-            <div className="flex flex-col gap-10" key={key}>
+            <div className="flex flex-col gap-10 border-t-4  !py-2" key={key}>
               <div className=" flex justify-between items-center bg-neutral-800 text-white !px-4 rounded md:!px-20 !py-2  ">
                 <p>
                   ID: <br /> {data.orderId}
